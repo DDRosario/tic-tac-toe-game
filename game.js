@@ -1,7 +1,7 @@
 /*****************************************/
 //    A Very Simple Tic Tac Toe Game     //
 /*****************************************/
-let board = [[1, 1, 2], [2, 2, 1], [2, 2, 1]]; //will be a matrix 3x3
+let board = [[1, 1, 2], [2, 2, 1], [1, 2, 1]]; //will be a matrix 3x3
 
 const printer = board => {
   console.log(JSON.stringify(board));
@@ -39,6 +39,7 @@ function checkWin(board) {
   if (checkRow(diags) || checkRow(otherWay)) {
     return true;
   }
+  return false;
 }
 function checkRow(row) {
   let first = row[0];
@@ -49,7 +50,7 @@ function checkRow(row) {
     return false;
   } else return true;
 }
-function checkCol(col) {}
-// function checkDiag ()
+// function placeMove(piece, location)
 
 console.log(checkWin(board));
+console.log('hello');

@@ -1,0 +1,26 @@
+{
+  "name": "tictactoe",
+  "version": "1.0.0",
+  "description": "Simple terminal tic tac toe game",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon game.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DDRosario/tic-tac-toe-game.git"
+  },
+  "keywords": [
+    "game"
+  ],
+  "author": "ddrosario",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DDRosario/tic-tac-toe-game/issues"
+  },
+  "homepage": "https://github.com/DDRosario/tic-tac-toe-game#readme",
+  "dependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
