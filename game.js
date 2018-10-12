@@ -1,11 +1,10 @@
 /*****************************************/
 //    A Very Simple Tic Tac Toe Game     //
 /*****************************************/
-let board = [[1, 2, 2], [2, 2, 1], [1, 2, 1]]; //will be a matrix 3x3
+let board = [[1, 1, 2], [2, 2, 1], [2, 2, 1]]; //will be a matrix 3x3
 
 const printer = board => {
   console.log(JSON.stringify(board));
-  // board.map(row => )
 };
 
 function checkWin(board) {
@@ -26,11 +25,18 @@ function checkWin(board) {
       })
     );
   });
-
   let checkedCols = rotated.filter(col => {
     return checkRow(col);
   });
   if (checkedCols.length > 0) {
+    return true;
+  }
+  let diags = board.map((row, i) => {
+    return row[i];
+  });
+  let otherIndex = board.length;
+  let otherWay = board.map(row => row[--otherIndex]);
+  if (checkRow(diags) || checkRow(otherWay)) {
     return true;
   }
 }
