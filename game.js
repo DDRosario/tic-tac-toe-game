@@ -1,7 +1,7 @@
 /*****************************************/
 //    A Very Simple Tic Tac Toe Game     //
 /*****************************************/
-let board = [[], [], []]; //will be a matrix 3x3
+let board = [[1, 2, 2], [2, 2, 1], [1, 2, 1]]; //will be a matrix 3x3
 
 const printer = board => {
   console.log(JSON.stringify(board));
@@ -10,24 +10,40 @@ const printer = board => {
 
 function checkWin(board) {
   let result = false;
-  // board.forEach(row =)
+  let arrayOfIndex = [];
+  let checkedRows = board.filter((row, i) => {
+    arrayOfIndex.push(i);
+    checkRow(row);
+  });
+  if (checkedRows.length > 0) {
+    return true;
+  }
+  let rotated = [];
+  arrayOfIndex.forEach(index => {
+    rotated.push(
+      board.map(row => {
+        return row[index];
+      })
+    );
+  });
+
+  let checkedCols = rotated.filter(col => {
+    return checkRow(col);
+  });
+  if (checkedCols.length > 0) {
+    return true;
+  }
 }
 function checkRow(row) {
-  let result = true;
-  //could be x, o, or undefined
   let first = row[0];
   let filtered = row.filter(spot => {
     return !!spot && spot === first;
   });
-  console.log('this is filter', filtered);
   if (filtered.length !== row.length) {
     return false;
-  }
-  // if ()
-  // if (row[0] === row[1] && !row[0]) return false; //if undefined return false
-  // if
+  } else return true;
 }
 function checkCol(col) {}
 // function checkDiag ()
 
-console.log(checkRow([1, 2, 1, undefined]));
+console.log(checkWin(board));
